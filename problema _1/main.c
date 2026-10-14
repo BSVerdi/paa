@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int merge(int array[], int esquerda, int meio, int direita) {
     int i, j, k;
@@ -11,8 +11,10 @@ int merge(int array[], int esquerda, int meio, int direita) {
 
     int inversoes = 0;
 
-    for (i = 0; i < tamanhoEsquerda; i++) subarrayEsquerda[i] = array[esquerda + i];
-    for (j = 0; j < tamanhoDireita; j++) subarrayDireita[j] = array[meio + j];
+    for (i = 0; i < tamanhoEsquerda; i++)
+        subarrayEsquerda[i] = array[esquerda + i];
+    for (j = 0; j < tamanhoDireita; j++)
+        subarrayDireita[j] = array[meio + j];
 
     i = 0, j = 0, k = esquerda;
 
@@ -25,8 +27,10 @@ int merge(int array[], int esquerda, int meio, int direita) {
         }
     }
 
-    while (i < tamanhoEsquerda) array[k++] = subarrayEsquerda[i++];
-    while (j < tamanhoDireita) array[k++] = subarrayDireita[j++];
+    while (i < tamanhoEsquerda)
+        array[k++] = subarrayEsquerda[i++];
+    while (j < tamanhoDireita)
+        array[k++] = subarrayDireita[j++];
 
     free(subarrayEsquerda);
     free(subarrayDireita);
@@ -43,8 +47,6 @@ int mergeSort(int array[], int left, int right) {
         totalInversoes += mergeSort(array, left, mid);
         totalInversoes += mergeSort(array, mid, right);
         totalInversoes += merge(array, left, mid, right);
-
-
     }
 
     return totalInversoes;
